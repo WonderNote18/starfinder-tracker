@@ -1,7 +1,5 @@
-//FILENAME : db.js
-
-const mongoose = require("mongoose");
 require('dotenv').config();
+const mongoose = require("mongoose");
 
 // Replace this with your MONGOURI.
 const MONGOURI = process.env.MONGO_URI;

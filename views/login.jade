@@ -3,26 +3,26 @@ extends layout
 block content
   div.container.mx-auto.py-8.px-16.text-center
     h2.text-4xl.font-semibold.py-2 Login
-  div.w-5_12.mt-10.mx-auto.px-48(class='sm:mt-0')
+  div.w-5_12.mt-10.mx-auto.px-24(class='sm:mt-0')
     div(class='md:grid md:grid-cols-2 md:gap-6')
       div.mt-5.border.border-solid.rounded-sm.border-zinc-100(class='md:col-span-2 md:mt-0')
-        form(action='/register' method='POST')
+        form(action='/login/submit' method='POST')
           div.overflow-hidden.shadow-md(class='sm:rounded-md')
             div.bg-white.px-4.py-5.mb-8(class='sm:p-6')
               div.grid.grid-cols2.gap-6
                 div.col-span-2(class='sm:col-span-4')
-                  label.block.text-sm.font-medium.text-gray-700(for='email-address') * Email address
-                  input#email-address.mt-1.block.w-full.rounded-md.border-gray-300.shadow-sm.h-8.border.border-solid.border-zinc-300(type='email'
-                  name='email-address'
+                  label.block.text-sm.font-medium.text-gray-700(for='emailAddress') * Email address
+                  input#emailAddress.mt-1.block.w-full.rounded-md.border-gray-300.shadow-sm.h-8.border.border-solid.border-zinc-300(type='email'
+                  name='emailAddress'
                   autocomplete='email'
                   class='focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
                   pattern='[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$'
                   title='Must be a valid email address.'
                   required)
                 div.col-span-6(class='sm:col-span-4')
-                  label.block.text-sm.font-medium.text-gray-700(for='user-secret') * Password
-                  input#user-secret.mt-1.block.w-full.rounded-md.border-gray-300.shadow-sm.h-8.border.border-solid.border-zinc-300(type='password'
-                  name='user-secret'
+                  label.block.text-sm.font-medium.text-gray-700(for='password') * Password
+                  input#password.mt-1.block.w-full.rounded-md.border-gray-300.shadow-sm.h-8.border.border-solid.border-zinc-300(type='password'
+                  name='password'
                   autocomplete='email'
                   class='focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
                   pattern='^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$'

@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express'),
   cookieParser = require('cookie-parser'),
   logger = require('morgan'),
@@ -24,7 +26,7 @@ app.set('view engine', 'jade');
 // middleware
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
