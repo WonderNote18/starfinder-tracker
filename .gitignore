@@ -103,4 +103,15 @@ dist
 # TernJS port file
 .tern-port
 
+# Visual Studio Code settings
+
+# TailwindCSS configuration
+tailwind.config.js*
+postcss.config.js*
+/cli
+/lib
+/peers
+/example
 .vscode
+.DS_Store
+yarn.lock
