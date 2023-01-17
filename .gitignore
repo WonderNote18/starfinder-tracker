@@ -106,8 +106,7 @@ dist
 # Visual Studio Code settings
 
 # TailwindCSS configuration
-tailwind.config.js*
-postcss.config.js*
+**.config.js
 /cli
 /lib
 /peers
