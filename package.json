@@ -1,0 +1,25 @@
+{
+  "name": "starfinder-tracker",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "live": "nodemon starfinder-tracker",
+    "build:css": "postcss public/stylesheets/tailwind.css -o public/stylesheets/style.css",
+    "build:wcss": "postcss public/stylesheets/tailwind.css -w -o public/stylesheets/style.css"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.13",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1",
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
+  }
+}
