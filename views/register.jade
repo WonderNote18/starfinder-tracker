@@ -3,10 +3,10 @@ extends layout
 block content
   div.container.mx-auto.py-8.px-16.text-center
     h2.text-4xl.font-semibold.py-2 Register
-  div.w-5_12.mt-10.mx-auto.px-24(class='sm:mt-0')
+  div.min-w-fit.max-w-4xl.mt-10.mx-auto.px-24(class='sm:mt-0')
     div(class='md:grid md:grid-cols-2 md:gap-6')
       div.mt-5.border.border-solid.rounded-sm.border-zinc-100(class='md:col-span-2 md:mt-0')
-        form(action='/register/submit' method='POST')
+        form(action='/api/register' method='POST')
           div.overflow-hidden.shadow-md(class='sm:rounded-md')
             div.bg-white.px-4.py-5.mb-8(class='sm:p-6')
               div.grid.grid-cols-6.gap-6

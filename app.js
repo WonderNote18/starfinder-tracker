@@ -1,9 +1,9 @@
 require('dotenv').config();
 
 const express = require('express'),
-  cookieParser = require('cookie-parser'),
-  logger = require('morgan'),
   bodyParser = require("body-parser"),
+  cookieParser = require('cookie-parser'),
+  cors = require('cors'),
   InitiateMongoServer = require('./config/db');
 
 var createError = require('http-errors'),
@@ -12,7 +12,7 @@ var createError = require('http-errors'),
 var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
-var usersRouter = require('./routes/users');
+var userRouter = require('./routes/user');
 
 // initiate mongo server
 InitiateMongoServer();
@@ -24,16 +24,16 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // middleware
-app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
-app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // routes
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api', userRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 
