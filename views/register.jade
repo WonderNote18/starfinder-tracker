@@ -1,4 +1,4 @@
-extends layout
+extends assets/layout
 
 block content
   div.container.mx-auto.py-8.px-16.text-center
@@ -12,19 +12,19 @@ block content
               div.grid.grid-cols-6.gap-6
                 div.col-span-6(class='sm:col-span-3')
                   label.block.text-sm.font-medium.text-gray-700(for='firstName') First name
-                  input#firstName.mt-1.block.w-full.rounded-md.border-gray-300.shadow-sm.h-8.border.border-solid.border-zinc-300(type='text'
+                  input#firstName.mt-1.block.w-full.rounded-md.border-gray-300.shadow-sm.h-8.border.border-solid.border-zinc-300.px-2(type='text'
                   name='firstName'
                   autocomplete='given-name'
                   class='focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm')
                 div.col-span-6(class='sm:col-span-3')
                   label.block.text-sm.font-medium.text-gray-700(for='lastName') Last name
-                  input#lastName.mt-1.block.w-full.rounded-md.border-gray-300.shadow-sm.h-8.border.border-solid.border-zinc-300(type='text'
+                  input#lastName.mt-1.block.w-full.rounded-md.border-gray-300.shadow-sm.h-8.border.border-solid.border-zinc-300.px-2(type='text'
                   name='lastName'
                   autocomplete='family-name'
                   class='focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm')
                 div.col-span-4.col-start-2
                   label.block.text-sm.font-medium.text-gray-700(for='emailAddress') * Email address
-                  input#emailAddress.mt-1.block.w-full.rounded-md.border-gray-300.shadow-sm.h-8.border.border-solid.border-zinc-300(type='email'
+                  input#emailAddress.mt-1.block.w-full.rounded-md.border-gray-300.shadow-sm.h-8.border.border-solid.border-zinc-300.px-2(type='email'
                   name='emailAddress'
                   autocomplete='email'
                   class='focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
@@ -33,7 +33,7 @@ block content
                   required)
                 div.col-span-4.col-start-2
                   label.block.text-sm.font-medium.text-gray-700(for='password') * Password
-                  input#password.mt-1.block.w-full.rounded-md.border-gray-300.shadow-sm.h-8.border.border-solid.border-zinc-300(type='password'
+                  input#password.mt-1.block.w-full.rounded-md.border-gray-300.shadow-sm.h-8.border.border-solid.border-zinc-300.px-2(type='password'
                   name='password'
                   class='focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
                   pattern='^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$'
