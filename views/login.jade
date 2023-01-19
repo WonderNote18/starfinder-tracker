@@ -1,12 +1,12 @@
 extends assets/layout
 
-block content
+block append content
   div.container.mx-auto.py-8.px-16.text-center
     h2.text-4xl.font-semibold.py-2 Login
   div.min-w-fit.max-w-2xl.mt-10.mx-auto.px-24(class='sm:mt-0')
     div(class='md:grid md:grid-cols-2 md:gap-6')
       div.mt-5.border.border-solid.rounded-sm.border-zinc-100(class='md:col-span-2 md:mt-0')
-        form(action='/api/login' method='POST')
+        form
           div.overflow-hidden.shadow-md(class='sm:rounded-md')
             div.bg-white.px-4.py-5.mb-8(class='sm:p-6')
               div.grid.grid-cols2.gap-6
@@ -28,12 +28,10 @@ block content
                   pattern='^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$'
                   title='Min. 8 characters, 1 number, 1 special character.'
                   required)
+                  div.text-red-400.text-center.font-semibold.errorLogin
             div.bg-gray-50.px-4.pt-6.pb-3.text-right(class='sm:px-6')
               button.inline-flex.justify-center.rounded-md.border.border-transparent.bg-emerald-700.py-2.px-4.text-sm.font-medium.text-white.shadow-sm(type='submit'
               class='hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2') Login
-if message
-  for i in message
-    div.alert.alert-info #{i}
-if err
-  for i in err
-    div.alert.alert-info #{i}
+
+block append scripts
+  script(src="/javascripts/loginForm.js")

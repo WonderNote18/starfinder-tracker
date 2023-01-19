@@ -1,9 +1,9 @@
 var express = require('express');
-const { isAuthenticated } = require('../controllers/user');
+const { requireAuth } = require('../controllers/jwt');
 var router = express.Router();
 
 /* GET user home page. */
-router.get('/', isAuthenticated, function(req, res, next) {
+router.get('/', requireAuth, function(req, res, next) {
   res.render('home/index');
 });
 
