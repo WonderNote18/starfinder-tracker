@@ -2,9 +2,12 @@ extends assets/layout
 
 block content
   div.w-1_3.flex.justify-around.mx-auto.py-8
-    a.bg-transparent.text-violet-600.font-bold.text-lg.py-2.px-4.border.border-violet-500.rounded(class="hover:bg-violet-700 hover:text-white hover:border-transparent" href='/login') Login
-    a.bg-transparent.text-blue-600.font-bold.text-lg.py-2.px-4.border.border-blue-500.rounded(class="hover:bg-blue-600 hover:text-white hover:border-transparent" href='/register') Register
-    a.bg-transparent.text-emerald-600.font-bold.text-lg.py-2.px-4.border.border-emerald-600.rounded(class="hover:bg-emerald-700 hover:text-white hover:border-transparent" href='/overview') Dashboard
+    if (isAuth == true)
+      a.bg-transparent.text-emerald-600.font-bold.text-lg.py-2.px-4.border.border-emerald-600.rounded.authView(class="hover:bg-emerald-700 hover:text-white hover:border-transparent" href='/overview') Dashboard
+      a.bg-transparent.text-blue-600.font-bold.text-lg.py-2.px-4.border.border-blue-500.rounded.authView(class="hover:bg-blue-600 hover:text-white hover:border-transparent" href='/logout') Logout
+    else
+      a.bg-transparent.text-violet-600.font-bold.text-lg.py-2.px-4.border.border-violet-500.rounded.guestView(class="hover:bg-violet-700 hover:text-white hover:border-transparent" href='/login') Login
+      a.bg-transparent.text-blue-600.font-bold.text-lg.py-2.px-4.border.border-blue-500.rounded.guestView(class="hover:bg-blue-600 hover:text-white hover:border-transparent" href='/register') Register
   br
   div.container.mx-auto.py-8.px-16
     h2.text-xl.font-semibold.py-2 What does it do?
@@ -14,3 +17,6 @@ block content
     h2.text-xl.font-semibold.py-2 How can it be used?
     p
       | Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quibusdam id voluptatem quis, consequuntur ipsam perspiciatis tempora inventore sequi neque! Ipsum laudantium fuga consectetur ipsam.
+
+block append scripts
+  script(src="/javascripts/homePage.js")

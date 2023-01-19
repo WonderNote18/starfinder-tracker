@@ -1,57 +1,59 @@
 const mongoose = require("mongoose");
-const crypto = require('crypto');
+const { isEmail } = require('validator');
+const bcrypt = require('bcryptjs');
 const { randomUUID } = require("crypto");
 
 const UserSchema = mongoose.Schema({
     emailAddress: {
         type: String,
         trim: true,
-        unique: true,
-        required: true
+        unique: [true, 'Email address has already been registered.'],
+        required: [true, 'Please enter an email address.'],
+        validate: [isEmail, 'Please enter a valid email address.']
     },
     firstName: {
         type: String,
-        maxLength: 32,
+        maxLength: [32, 'Names must be no greater than 32 characters.'],
         trim: true,
         default: null
     },
     lastName: {
         type: String,
-        maxLength: 32,
+        maxLength: [32, 'Names must be no greater than 32 characters.'],
         trim: true,
         default: null
     },
-    encry_password: {
+    password: {
         type: String,
-        required: true
-    },
-    salt: String,
+        required: [true, 'Please enter a password.'],
+        minLength: [8, 'Password must be at least 8 characters long.'],maxLength: [32, 'Password must be no greater than 32 characters.'],
+    }
 }, {timestamps: true});
 
-UserSchema.virtual("password")
-    .set(function(password) {
-        this._password = password;
-        this.salt = randomUUID()
-        this.encry_password = this.securePassword(password);
-    })
-    .get(function() {
-        return this._password;
-    });
-UserSchema.methods = {
-    authenticate: function(plainpass) {
-        return this.securePassword(plainpass) === this.encry_password;
-    },
+// pre/post model functions
+UserSchema.post('save', function(doc, next) {
+    console.log('new user was created', doc);
+    next();
+});
 
-    securePassword: function(plainpass) {
-        if (!plainpass) return null;
+UserSchema.pre('save', async function(next) {
+    const salt = await bcrypt.genSalt();
+    this.password = await bcrypt.hash(this.password, salt);
+    next();
+});
 
-        try {
-            return crypto.createHmac("sha256", this.salt).update(plainpass).digest("hex");
-        } catch (err) {
-            console.error(err);
+// static methods
+UserSchema.statics.login = async function(emailAddress, password){
+    const user = await this.findOne({ emailAddress });
+    if (user) {
+        const auth = await bcrypt.compare(password, user.password);
+        if (auth) {
+            return user;
         }
     }
+    throw Error('Invalid email/password');
 }
 
 // export model user with UserSchema
-module.exports = mongoose.model("User", UserSchema);
+const User = mongoose.model("User", UserSchema);
+module.exports = User;
