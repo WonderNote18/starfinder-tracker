@@ -1,10 +1,9 @@
-var express = require('express');
+const express = require('express');
+const router = express.Router();
 const { requireAuth } = require('../controllers/jwt');
-var router = express.Router();
+const homeController = require('../controllers/homeController');
 
 /* GET user home page. */
-router.get('/', requireAuth, function(req, res, next) {
-  res.render('home/index');
-});
+router.get('/', requireAuth, homeController.overview_get);
 
 module.exports = router;

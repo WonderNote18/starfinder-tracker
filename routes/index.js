@@ -4,8 +4,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  isAuth(req).then(authenticated => {
-    res.render('index', {isAuth: authenticated});
+  isAuth(req).then(authRes => {
+    res.render('index', {isAuth: authRes.isAuthenticated});
   });
 });
 

@@ -54,6 +54,15 @@ UserSchema.statics.login = async function(emailAddress, password){
     throw Error('Invalid email/password');
 }
 
+UserSchema.statics.fetchUser = async function(id) {
+    const user = await this.findOne({id});
+    if (user) {
+        return(user);
+    } else {
+        throw Error('Session expired, please log in.');
+    }
+}
+
 // export model user with UserSchema
 const User = mongoose.model("User", UserSchema);
 module.exports = User;

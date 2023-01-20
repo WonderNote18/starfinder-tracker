@@ -11,9 +11,9 @@ function createToken(id) {
 }
 
 function requireAuth(req, res, next) {
-  isAuth(req).then(isAuthenticated => {
+  isAuth(req).then(authRes => {
     // check JWT if exists and verified
-    if (isAuthenticated) {
+    if (authRes.isAuthenticated) {
       next();
     } else {
       res.redirect('/login');
@@ -26,7 +26,7 @@ function requireAuth(req, res, next) {
 async function isAuth(req) {
   // check JWT if exists and verified
   const token = req.cookies.authToken;
-  var flag;
+  var flag, decodedToken;
 
   if (!token) {
     flag = false;
@@ -40,7 +40,7 @@ async function isAuth(req) {
         flag = false;
       }
       if (decoded) {
-        // console.log(decoded);
+        decodedToken = decoded;
         flag = true;
       }
     });
@@ -49,8 +49,7 @@ async function isAuth(req) {
     flag = false;
   }
 
-
-  return flag;
+  return {isAuthenticated: flag, token: decodedToken};
 }
 
 module.exports = {createToken, requireAuth, isAuth};
