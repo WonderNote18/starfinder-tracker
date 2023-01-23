@@ -1,14 +1,10 @@
-doctype html
-html.font-SSPRO(lang="en")
-  head
-    title="Starfinder Tracker - Home"
-    link(rel='stylesheet', href='/stylesheets/style.css')
+include html
   body
     main.flex.flex-col.min-h-screen
       div.flex.grow
         include aside
 
-        div.flex
+        div.flex.w-full.bg-slate-100(class="dark:bg-zinc-800 dark:text-zinc-200")
           block content
 
       footer.flex.w-full.bg-gray-300.px-1

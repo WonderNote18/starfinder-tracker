@@ -1,0 +1,34 @@
+div.formModal
+  div.px-4.py-5.mb-8(class='sm:p-6')
+    div.grid.grid-cols-6.gap-6
+      div.col-span-6(class='sm:col-span-3')
+        label.block.text-sm.font-medium(class="dark:font-outline-1" for='firstName') First Name
+        input#firstName.formField(type='text'
+        name='firstName'
+        autocomplete='given-name')
+        div.text-red-400.text-center.font-semibold.errorFirstName
+      div.col-span-6(class='sm:col-span-3')
+        label.block.text-sm.font-medium(class="dark:font-outline-1" for='lastName') Last Name
+        input#lastName.formField(type='text'
+        name='lastName'
+        autocomplete='family-name')
+        div.text-red-400.text-center.font-semibold.errorLastName
+      div.col-span-4.col-start-2
+        label.block.text-sm.font-medium(class="dark:font-outline-1" for='emailAddress') * Email address
+        input#emailAddress.formField(type='email'
+        name='emailAddress'
+        autocomplete='email'
+        pattern='[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$'
+        title='Must be a valid email address.'
+        required)
+        div.text-red-400.text-center.font-semibold.errorEmailAddress
+      div.col-span-4.col-start-2
+        label.block.text-sm.font-medium(class="dark:font-outline-1" for='password') * Password
+        input#password.formField(type='password'
+        name='password'
+        pattern='^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$'
+        title='Min. 8 characters, 1 number, 1 special character.'
+        required)
+        div.text-red-400.text-center.font-semibold.errorPassword
+  div.bg-gray-100.border-slate-300.border-t-2.px-4.pt-6.pb-3.text-right(class='sm:px-6 dark:bg-gray-500 dark:border-slate-800')
+    button.formSubmitBtn(type='submit') Register

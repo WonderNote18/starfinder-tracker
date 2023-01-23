@@ -1,17 +1,13 @@
-doctype html
-html.font-SSPRO(lang="en")
-  head
-    title="Starfinder Tracker"
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
+include html
+  body.bg-white(class='dark:bg-gray-700 dark:text-slate-200')
     a(href="/")
-      header.w-full.mx-auto.py-12.text-center.text-gray-900.bg-teal-200(class='dark:bg-gray-800 dark:text-slate-100 hover:bg-teal-300 dark:hover:bg-gray-700')
+      header.homeHeader
         h2.text-5xl.font-bold.tracking-tight
-          span.block Starfinder Tracker
+          span.block(class="dark:font-outline-0b") Starfinder Tracker
         h3.text-lg.font- Welcome to the Starfinder Campaign Tracker!
     block content
 
     footer.flex.fixed.bottom-0.left-0.w-full.bg-gray-300.px-1
-      div.py-4
+      div.py-4.text-slate-800
         p About Starfinder Tracker. . .
     block scripts

@@ -1,26 +1,32 @@
 aside.flex(aria-label='Sidebar')
-  div.px-3.py-4.box-border.border-solid.border-r-2.border-slate-300.overflow-y-auto.text-gray-900.bg-teal-200(class='dark:bg-gray-800 dark:text-slate-100 dark:border-slate-800')
+  div.px-3.py-4.box-border.border-solid.border-r-2.border-slate-300.overflow-y-auto.text-zinc-700.bg-stone-300(class='dark:bg-gray-800 dark:text-slate-200 dark:border-slate-800')
     ul.flex.flex-col.h-full.space-y-2
       li
-        a.flex.items-center.p-2.text-base.font-normal.text-gray-900.rounded-lg(href='/' class='dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700')
-          svg.flex-shrink-0.w-6.h-6.text-gray-500.transition.duration-75(aria-hidden='true' class='dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white' fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg')
+        a.flex.items-center.p-2.text-base.font-normal.rounded-lg.bg-slate-200.duration-150(href='/overview' class='active:translate-y-0.5 active:duration-[0.05s] hover:bg-gray-100 hover: dark:bg-gray-600 dark:hover:bg-gray-700')
+          svg.flex-shrink-0.w-6.h-6.text-gray-500.transition.duration-150(aria-hidden='true' class='dark:text-gray-400 group-hover:text-zinc-700 dark:group-hover:text-slate-200' fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg')
             path(d='M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z')
             path(d='M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z')
           span.flex-1.ml-3.whitespace-nowrap Home
       li
-        a.flex.items-center.p-2.text-base.font-normal.text-gray-900.rounded-lg(href='#' class='dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700')
-          svg.flex-shrink-0.w-6.h-6.text-gray-500.transition.duration-75(aria-hidden='true' class='dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white' fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg')
+        a.flex.items-center.p-2.text-base.font-normal.rounded-lg.bg-slate-200.duration-150(href='/overview/campaigns' class='hover:bg-gray-100 dark:bg-gray-600 dark:hover:bg-gray-700')
+          svg.flex-shrink-0.w-6.h-6.text-gray-500.transition.duration-150(aria-hidden='true' class='dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-slate-200' fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg')
             path(d='M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z')
           span.flex-1.ml-3.whitespace-nowrap Campaigns
-          span.inline-flex.items-center.justify-center.px-2.ml-3.text-sm.font-medium.text-gray-800.bg-gray-200.rounded-full(class='dark:bg-gray-700 dark:text-gray-300') Pro
+          span.inline-flex.items-center.justify-center.px-2.ml-3.text-sm.font-medium.text-gray-800.bg-gray-200.rounded-full(class='dark:bg-gray-700 dark:text-gray-300') 3
       li
-        a.flex.items-center.p-2.text-base.font-normal.text-gray-900.rounded-lg(href='#' class='dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700')
-          svg.flex-shrink-0.w-6.h-6.text-gray-500.transition.duration-75(aria-hidden='true' class='dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white' fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg')
+        a.flex.items-center.p-2.text-base.font-normal.rounded-lg.bg-slate-200.duration-150(href='/overview/characters' class='hover:bg-gray-100 dark:bg-gray-600 dark:hover:bg-gray-700')
+          svg.flex-shrink-0.w-6.h-6.text-gray-500.transition.duration-150(aria-hidden='true' class='dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-slate-200' fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg')
             path(fill-rule='evenodd' d='M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z' clip-rule='evenodd')
           span.flex-1.ml-3.whitespace-nowrap Characters
+          span.inline-flex.items-center.justify-center.px-2.ml-3.text-sm.font-medium.text-gray-800.bg-gray-200.rounded-full(class='dark:bg-gray-700 dark:text-gray-300') 12
+      //- bottom options
       li.flex.flex-1.flex-col.justify-end
-        a.flex.items-center.p-2.text-base.font-normal.text-gray-900.rounded-lg(href='/api/logout' class='dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700')
-          svg.flex-shrink-0.w-6.h-6.text-gray-500.transition.duration-75(aria-hidden='true' class='dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white' fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg')
+        a.flex.items-center.p-2.mb-2.text-lg.font-semibold.rounded-lg.bg-slate-200.duration-150(href='/' class='hover:bg-gray-100 dark:bg-gray-600 dark:hover:bg-gray-700')
+          svg.flex-shrink-0.w-6.h-6.text-gray-500.transition.duration-150(aria-hidden='true' class='dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-slate-200' fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg')
+            path(fill-rule='evenodd' d='M3 2.25a.75.75 0 000 1.5v16.5h-.75a.75.75 0 000 1.5H15v-18a.75.75 0 000-1.5H3zM6.75 19.5v-2.25a.75.75 0 01.75-.75h3a.75.75 0 01.75.75v2.25a.75.75 0 01-.75.75h-3a.75.75 0 01-.75-.75zM6 6.75A.75.75 0 016.75 6h.75a.75.75 0 010 1.5h-.75A.75.75 0 016 6.75zM6.75 9a.75.75 0 000 1.5h.75a.75.75 0 000-1.5h-.75zM6 12.75a.75.75 0 01.75-.75h.75a.75.75 0 010 1.5h-.75a.75.75 0 01-.75-.75zM10.5 6a.75.75 0 000 1.5h.75a.75.75 0 000-1.5h-.75zm-.75 3.75A.75.75 0 0110.5 9h.75a.75.75 0 010 1.5h-.75a.75.75 0 01-.75-.75zM10.5 12a.75.75 0 000 1.5h.75a.75.75 0 000-1.5h-.75zM16.5 6.75v15h5.25a.75.75 0 000-1.5H21v-12a.75.75 0 000-1.5h-4.5zm1.5 4.5a.75.75 0 01.75-.75h.008a.75.75 0 01.75.75v.008a.75.75 0 01-.75.75h-.008a.75.75 0 01-.75-.75v-.008zm.75 2.25a.75.75 0 00-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 00.75-.75v-.008a.75.75 0 00-.75-.75h-.008zM18 17.25a.75.75 0 01.75-.75h.008a.75.75 0 01.75.75v.008a.75.75 0 01-.75.75h-.008a.75.75 0 01-.75-.75v-.008z' clip-rule='evenodd')
+          span.flex-1.ml-3.whitespace-nowrap Homepage
+        a.flex.items-center.p-2.text-lg.font-semibold.rounded-lg.bg-slate-200.duration-150(href='/api/logout' class='hover:bg-gray-100 dark:bg-gray-600 dark:hover:bg-gray-700')
+          svg.flex-shrink-0.w-6.h-6.text-gray-500.transition.duration-150(aria-hidden='true' class='dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-slate-200' fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg')
             path(fill-rule='evenodd' d='M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z' clip-rule='evenodd')
           span.flex-1.ml-3.whitespace-nowrap Sign Out
 
