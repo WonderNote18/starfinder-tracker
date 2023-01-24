@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const { isEmail } = require('validator');
 const bcrypt = require('bcryptjs');
-const { randomUUID } = require("crypto");
 
 const UserSchema = mongoose.Schema({
     emailAddress: {
@@ -27,6 +26,14 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: [true, 'Please enter a password.'],
         minLength: [8, 'Password must be at least 8 characters long.'],maxLength: [32, 'Password must be no greater than 32 characters.'],
+    },
+    campaigns: {
+        type: mongoose.Types.ObjectId,
+        ref: 'Campaign'
+    },
+    characters: {
+        type: mongoose.Types.ObjectId,
+        ref: 'Character'
     }
 }, {timestamps: true});
 
@@ -57,12 +64,21 @@ UserSchema.statics.login = async function(emailAddress, password){
 UserSchema.statics.fetchUser = async function(id) {
     const user = await this.findOne({id});
     if (user) {
-        return(user);
+        return user;
     } else {
         throw Error('Session expired, please log in.');
     }
 }
 
-// export model user with UserSchema
+UserSchema.statics.fetchUserId = async function(id) {
+    const user = await this.findOne({id});
+    if (user) {
+        return user._id;
+    } else {
+        throw Error('Session expired, please log in.');
+    }
+}
+
+// export model User with UserSchema
 const User = mongoose.model("User", UserSchema);
 module.exports = User;

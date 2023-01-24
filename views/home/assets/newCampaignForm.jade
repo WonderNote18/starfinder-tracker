@@ -1,0 +1,16 @@
+div.formModal
+  div.px-4.py-5.mb-8(class='sm:p-6')
+    div.grid.grid-cols-6.gap-6
+      div.col-span-2(class='sm:col-span-2')
+        label.block.text-sm.font-medium(class="dark:font-outline-1" for='campaignName') * Name of Campaign
+        input#campaignName.formField(type='text'
+        name='campaignName'
+        required)
+      div.col-span-6
+        label.block.text-sm.font-medium(class="dark:font-outline-1" for='campaignDescription') Description
+        textarea#campaignDescription.formTextarea(rows='4'
+        name='campaignDescription'
+        placeholder='Write a description here. . .')
+        div.text-red-400.text-center.font-semibold.errorCampaignCreate
+  div.bg-gray-100.border-slate-300.border-t-2.px-4.pt-6.pb-3.text-right(class='sm:px-6 dark:bg-gray-700 dark:border-slate-800')
+    button.formSubmitBtn(type='submit') Create Campaign

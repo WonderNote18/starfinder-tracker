@@ -1,0 +1,13 @@
+extends assets/layout
+
+block content
+  div.flex.flex-col.w-full.m-6
+    h1.text-3xl.font-bold.mb-6 Create Campaign
+    div.mt-10.mx-auto.px-24(class='w-[90%] sm:mt-0')
+      div(class='md:grid md:grid-cols-2 md:gap-6')
+        div.mt-5.border.border-solid.border-zinc-300.border-2.rounded-md(class='md:col-span-2 md:mt-0 dark:border-slate-800')
+          form
+            include assets/newCampaignForm
+
+block append scripts
+  script(src="/javascripts/newCampaignForm.js")

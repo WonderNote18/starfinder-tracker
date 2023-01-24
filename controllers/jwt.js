@@ -48,7 +48,6 @@ async function isAuth(req) {
     console.log(err);
     flag = false;
   }
-
   return {isAuthenticated: flag, token: decodedToken};
 }
 
