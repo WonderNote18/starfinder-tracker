@@ -14,6 +14,7 @@ function requireAuth(req, res, next) {
   isAuth(req).then(authRes => {
     // check JWT if exists and verified
     if (authRes.isAuthenticated) {
+      res.locals.token = authRes.token;
       next();
     } else {
       res.redirect('/login');
@@ -40,7 +41,7 @@ async function isAuth(req) {
         flag = false;
       }
       if (decoded) {
-        decodedToken = decoded;
+        decodedToken = decoded.id;
         flag = true;
       }
     });

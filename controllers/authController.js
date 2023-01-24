@@ -12,10 +12,10 @@ const register_get = (req, res) => {
 }
 
 const register_post = async (req, res) => {
-  const {firstName, lastName, emailAddress, password} = req.body;
+  const {firstName, lastName, username, emailAddress, password} = req.body;
 
   try {
-    const user = await User.create({firstName, lastName, emailAddress, password});
+    const user = await User.create({firstName, lastName, username, emailAddress, password});
     const token = createToken(user._id);
     const maxAge = 3 * 24 * 60 * 60 * 1000;
 

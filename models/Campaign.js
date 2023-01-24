@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const ObjectId = require("mongoose").Types.ObjectId;
 const nanoid = require("nanoid");
+const User = require('./User');
 
 const CampaignSchema = mongoose.Schema({
   campaignName: {
@@ -13,24 +14,16 @@ const CampaignSchema = mongoose.Schema({
     trim: true,
   },
   campaignAuthor: {
-    type: mongoose.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: [true, 'A User ID is required to connect your campaign']
   },
   campaignPlayers: {
-    type: ObjectId,
+    type: Array,
     ref: 'User'
   },
-  campaignCharactersActive: {
-    type: ObjectId,
-    ref: 'Character'
-  },
-  campaignCharactersInactive: {
-    type: ObjectId,
-    ref: 'Character'
-  },
-  campaignCharactersStandby: {
-    type: ObjectId,
+  campaignCharacters: {
+    type: Array,
     ref: 'Character'
   },
   isActive: {
@@ -50,7 +43,8 @@ CampaignSchema.pre('save', function(next){
   this.inviteKey = nanoid();
   next();
 });
-CampaignSchema.post('save', function(doc, next){
+CampaignSchema.post('save', async function(doc, next){
+  await User.updateOne({_id: doc.campaignAuthor}, {$push: {campaigns: doc._id}});
   console.log('new campaign was created', doc);
   next();
 })

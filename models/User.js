@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const ObjectId = require("mongoose").Types.ObjectId;
 const { isEmail } = require('validator');
 const bcrypt = require('bcryptjs');
 
@@ -9,6 +10,12 @@ const UserSchema = mongoose.Schema({
         unique: [true, 'Email address has already been registered.'],
         required: [true, 'Please enter an email address.'],
         validate: [isEmail, 'Please enter a valid email address.']
+    },
+    username: {
+        type: String,
+        maxlength: 32,
+        trim: true,
+        required: [true, 'Please enter a username.'],
     },
     firstName: {
         type: String,
@@ -28,12 +35,12 @@ const UserSchema = mongoose.Schema({
         minLength: [8, 'Password must be at least 8 characters long.'],maxLength: [32, 'Password must be no greater than 32 characters.'],
     },
     campaigns: {
-        type: mongoose.Types.ObjectId,
-        ref: 'Campaign'
+        type: Array,
+        ref: 'Campaign',
     },
     characters: {
-        type: mongoose.Types.ObjectId,
-        ref: 'Character'
+        type: Array,
+        ref: 'Character',
     }
 }, {timestamps: true});
 
@@ -62,7 +69,7 @@ UserSchema.statics.login = async function(emailAddress, password){
 }
 
 UserSchema.statics.fetchUser = async function(id) {
-    const user = await this.findOne({id});
+    const user = await this.findOne({_id: id});
     if (user) {
         return user;
     } else {
@@ -71,7 +78,7 @@ UserSchema.statics.fetchUser = async function(id) {
 }
 
 UserSchema.statics.fetchUserId = async function(id) {
-    const user = await this.findOne({id});
+    const user = await this.findOne({_id: id});
     if (user) {
         return user._id;
     } else {

@@ -20,7 +20,10 @@ aside.flex(aria-label='Sidebar')
           svg.flex-shrink-0.w-6.h-6.text-gray-500.transition.duration-150(aria-hidden='true' class='dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-slate-200' fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg')
             path(fill-rule='evenodd' d='M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z' clip-rule='evenodd')
           span.flex-1.ml-3.whitespace-nowrap Characters
-          span.inline-flex.items-center.justify-center.px-2.ml-3.text-sm.font-medium.text-gray-800.bg-gray-200.rounded-full(class='dark:bg-gray-700 dark:text-gray-300') 12
+          if user.characters
+            span.inline-flex.items-center.justify-center.px-2.ml-3.text-sm.font-medium.text-gray-800.bg-gray-200.rounded-full(class='dark:bg-gray-700 dark:text-gray-300')= user.characters.length
+          else
+            span.inline-flex.items-center.justify-center.px-2.ml-3.text-sm.font-medium.text-gray-800.bg-gray-200.rounded-full(class='dark:bg-gray-700 dark:text-gray-300') 0
       //- bottom options
       li.flex.flex-1.flex-col.justify-end
         a.flex.items-center.p-2.mb-2.text-lg.font-semibold.rounded-lg.bg-slate-200.duration-150(href='/' class='hover:bg-gray-100 dark:bg-gray-600 dark:hover:bg-gray-700')

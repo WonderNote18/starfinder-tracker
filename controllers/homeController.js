@@ -18,24 +18,24 @@ const fetchCampaignList = async (userId) => {
 }
 
 const fetchCampaign = async (user) => {
-  const campaign = await Campaign.fetchUser(req.cookies.authToken.id);
+  const campaign = await Campaign.fetchUser(res.locals['token']);
   return campaign;
 }
 
 const overview_get = (req, res) => {
-  fetchUser(req.cookies.authToken.id).then(userRes => {
+  fetchUser(res.locals['token']).then(userRes => {
     res.render('home/index', {user: userRes});
   });
 }
 
 const campaigns_get = async (req, res) => {
-  const user = await fetchUser(req.cookies.authToken.id);
+  const user = await fetchUser(res.locals['token']);
   const data = await fetchCampaignList(user._id);
   res.render('home/campaigns', {user, data});
 }
 
 const new_campaign_get = (req, res) => {
-  fetchUser(req.cookies.authToken.id).then(userRes => {
+  fetchUser(res.locals['token']).then(userRes => {
     res.render('home/createCampaign', {user: userRes});
   });
 }
@@ -44,7 +44,7 @@ const new_campaign_post = async (req, res) => {
   const {campaignName, campaignDescription} = req.body;
 
   try {
-    fetchUser(req.cookies.authToken.id).then(async (userRes) => {
+    fetchUser(res.locals['token']).then(async (userRes) => {
       const user = userRes;
       const campaign = await Campaign.create({campaignName, campaignDescription, campaignAuthor: user._id})
       res.status(201).json({campaign: campaign._id})
@@ -56,13 +56,13 @@ const new_campaign_post = async (req, res) => {
 }
 
 const characters_get = (req, res) => {
-  fetchUser(req.cookies.authToken.id).then(userRes => {
+  fetchUser(res.locals['token']).then(userRes => {
     res.render('home/characters', {user: userRes});
   });
 }
 
 const settings_get = (req, res) => {
-  fetchUser(req.cookies.authToken.id).then(userRes => {
+  fetchUser(res.locals['token']).then(userRes => {
     res.render('home/settings', {user: userRes});
   });
 }

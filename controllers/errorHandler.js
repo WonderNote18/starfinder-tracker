@@ -22,4 +22,4 @@ const handleErr = (err) => {
   return errors;
 }
 
-module.export = { handleErr }
+module.exports = { handleErr }

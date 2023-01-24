@@ -23,20 +23,26 @@
   .formSubmitBtn {
     @apply inline-flex justify-center rounded-md border border-transparent bg-emerald-700 py-2 px-4 text-sm font-bold text-white shadow-sm duration-150 hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:bg-transparent dark:border-emerald-200 dark:text-emerald-200 dark:focus:ring-emerald-600 dark:hover:bg-emerald-700 dark:hover:text-slate-100 dark:hover:border-emerald-300
   }
+  .dbTableContainer {
+    @apply overflow-hidden rounded-lg m-5 h-[30rem] overflow-y-auto
+  }
   .dbTable {
-    @apply flex flex-row flex-wrap w-full dark:bg-zinc-700 rounded-md
+    @apply w-full border-collapse text-left
   }
-  .dbTableRowHeader {
-    @apply flex flex-auto justify-center text-center w-full mt-1 mb-2 px-1 h-8 gap-x-1 rounded bg-gray-200 dark:bg-transparent
-  }
-  .dbTableRow {
-    @apply flex flex-auto bg-slate-200 justify-center text-center w-full h-20 mx-1 text-ellipsis dark:px-1 dark:mx-0 mb-2 gap-x-1 dark:bg-transparent
+  .dbTableHeader {
+    @apply sticky top-0
   }
   .dbTableHeaderItem {
-    @apply flex px-1 items-center justify-center overflow-hidden overflow-y-auto font-semibold rounded dark:bg-zinc-600
+    @apply px-6 py-4 w-1_6 font-bold uppercase bg-gray-200 dark:bg-slate-600
+  }
+  .dbTableBody {
+    @apply h-full divide-y divide-zinc-200 border-t border-gray-100 overflow-y-auto
   }
   .dbTableItem {
-    @apply flex px-1 w-full items-center rounded justify-center overflow-hidden whitespace-nowrap text-ellipsis rounded bg-white dark:bg-zinc-600
+    @apply px-6 py-4 overflow-hidden whitespace-nowrap text-ellipsis
+  }
+  .dbTableBody tr {
+    @apply z-40 bg-gray-50 bg-white hover:bg-gray-300 dark:bg-zinc-700 dark:hover:bg-stone-800
   }
 }
 

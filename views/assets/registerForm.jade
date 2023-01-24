@@ -16,6 +16,16 @@ div.formModal
         placeholder='Enter your last name')
         div.text-red-400.text-center.font-semibold.errorLastName
       div.col-span-4.col-start-2
+        label.block.text-sm.font-medium(class="dark:font-outline-1" for='username') * Username
+        input#username.formField(type='text'
+        name='username'
+        autocomplete='username'
+        placeholder='Enter your desired username'
+        pattern='[a-zA-Z][a-zA-Z0-9-_.]{2,31}'
+        title='Must be a valid username (min 3/max 32 characters).'
+        required)
+        div.text-red-400.text-center.font-semibold.errorUsername
+      div.col-span-4.col-start-2
         label.block.text-sm.font-medium(class="dark:font-outline-1" for='emailAddress') * Email address
         input#emailAddress.formField(type='email'
         name='emailAddress'

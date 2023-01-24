@@ -6,35 +6,28 @@ block content
     div.flex.ml-auto.content-end.w-fit
       a.formSubmitBtn(href="/overview/campaigns/create") New Campaign
     h3.text-xl.font-semibold.mb-4 Campaign List
-    div.dbTable
-      div.dbTableRowHeader
-        div.dbTableHeaderItem(class="basis-7/12") Title + Data
-        div.dbTableHeaderItem(class="basis-1/6") Author
-        div.dbTableHeaderItem(class="basis-1/6") Created At
-        div.dbTableHeaderItem(class="basis-1/12") Actions
-      if data.length
-        each entry in data
-          div.dbTableRow
-            div.dbTableItem.justify-start(class="basis-7/12")
-              div.w-3_5.text-start
-                p.font-semibold.text-lg= entry.campaignName
-                p.italic.whitespace-pre-wrap.line-clamp-2.text-ellipsis.w-full.overflow-hidden= entry.campaignDescription
-              div.w-2_5.text-end
-                if (entry.campaignCharactersActive && entry.campaignPlayers)
+    div.dbTableContainer
+      table.dbTable
+        thead.dbTableHeader
+          tr
+            th.dbTableHeaderItem.w-1_2 Campaign
+            th.dbTableHeaderItem Author
+            th.dbTableHeaderItem Date
+            th.dbTableHeaderItem Actions
+        tbody.dbTableBody
+          if data.length
+            each item in data
+              tr
+                th.dbTableItem.flex.gap-3.font-normal
+                  div.text-sm
+                    div.font-medium= item.campaignName
+                    div.italic.whitespace-pre-wrap.line-clamp-2.text-ellipsis.overflow-hidden= item.campaignDescription
+                td.dbTableItem= item.campaignAuthor.username
+                td.dbTableItem
+                  span= item.createdAt.toLocaleDateString()
                   br
-                  p.font-semibold Characters: #{entry.campaignCharactersActive.length}
-                  p.italic Users: #{entry.campaignPlayers.length}
-                else
-                  br
-                  p.font-semibold Characters: 0
-                  p.italic.text-elipses Users: 0
-            div.dbTableItem.italic(class="basis-1/6")= `${entry.campaignAuthor.firstName} ${entry.campaignAuthor.lastName}`
-            div.dbTableItem(class="basis-1/6")
-              div.w-full
-                span= entry.createdAt.toLocaleDateString()
-                br
-                span= entry.createdAt.toLocaleTimeString()
-            div.dbTableItem(class="basis-1/12") Actions
-      else
-        div.dbTableRow
-          div.dbTableItem.font-bold.text-2xl(class='basis-full') No campaigns found
+                  span= item.createdAt.toLocaleTimeString()
+                td.dbTableItem Actions
+          else
+            tr
+              td.dbTableItem.text-center.font-bold.text-2xl(colspan='4') No Campaigns Found
