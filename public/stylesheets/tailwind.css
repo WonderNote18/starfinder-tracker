@@ -23,6 +23,21 @@
   .formSubmitBtn {
     @apply inline-flex justify-center rounded-md border border-transparent bg-emerald-700 py-2 px-4 text-sm font-bold text-white shadow-sm duration-150 hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:bg-transparent dark:border-emerald-200 dark:text-emerald-200 dark:focus:ring-emerald-600 dark:hover:bg-emerald-700 dark:hover:text-slate-100 dark:hover:border-emerald-300
   }
+  .sidebar {
+    @apply px-3 py-4 box-border border-solid border-r-2 border-slate-300 overflow-y-auto text-zinc-700 bg-stone-300 dark:bg-gray-800 dark:text-slate-200 dark:border-slate-800
+  }
+  .sidebarItem {
+    @apply flex items-center p-2 text-base font-normal rounded-lg bg-slate-200 duration-150 active:translate-y-0.5 active:duration-[0.05s] hover:bg-gray-100 dark:bg-gray-600 dark:hover:bg-gray-700
+  }
+  .sidebarItemBottom {
+    @apply flex items-center p-2 mb-2 text-lg font-semibold rounded-lg bg-slate-200 duration-150 active:translate-y-0.5 active:duration-[0.05s]  hover:bg-gray-100 dark:bg-gray-600 dark:hover:bg-gray-700
+  }
+  .sidebarItemIcon {
+    @apply flex-shrink-0 w-6 h-6 text-gray-500 transition duration-150 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-slate-200
+  }
+  .sidebarItemCounter {
+    @apply inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300
+  }
   .dbTableContainer {
     @apply overflow-hidden rounded-lg m-5 h-[30rem] overflow-y-auto
   }
@@ -36,7 +51,7 @@
     @apply px-6 py-4 w-1_6 font-bold uppercase bg-gray-200 dark:bg-slate-600
   }
   .dbTableBody {
-    @apply h-full divide-y divide-zinc-200 border-t border-gray-100 overflow-y-auto
+    @apply h-full divide-y divide-zinc-200 border-t border-gray-800 dark:border-gray-100 overflow-y-auto
   }
   .dbTableItem {
     @apply px-6 py-4 overflow-hidden whitespace-nowrap text-ellipsis
