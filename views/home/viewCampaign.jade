@@ -1,0 +1,11 @@
+extends assets/layout
+
+block content
+  div.pageContainer
+    h1.pageHeader Campaign |
+      =" "
+      span.underline= campaign.campaignName
+    div.bg-gray-200(class='dark:bg-slate-600')
+      p Description: #{campaign.campaignDescription}
+      p Author: #{campaign.campaignAuthor.username}
+      p Created At: #{campaign.createdAt.toLocaleDateString()} @ #{campaign.createdAt.toLocaleTimeString()}

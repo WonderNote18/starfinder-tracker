@@ -1,8 +1,8 @@
 extends assets/layout
 
 block content
-  div.flex.flex-col.w-full.m-6
-    h1.text-3xl.font-bold.mb-6 Campaigns
+  div.pageContainer
+    h1.pageHeader Campaigns
     div.flex.ml-auto.content-end.w-fit
       a.formSubmitBtn(href="/overview/campaigns/create") New Campaign
     h3.text-xl.font-semibold.mb-4 Campaign List
@@ -17,7 +17,7 @@ block content
         tbody.dbTableBody
           if data.length
             each item in data
-              tr
+              tr(data-id=item.campaignAuthor.campaigns.indexOf(item._id))
                 th.dbTableItem.flex.gap-3.font-normal
                   div.text-sm
                     div.font-medium= item.campaignName
@@ -27,7 +27,9 @@ block content
                   span= item.createdAt.toLocaleDateString()
                   br
                   span= item.createdAt.toLocaleTimeString()
-                td.dbTableItem Actions
+                td.dbTableItem
+                  div.flex.flex-row
+                    a(href='/overview/campaigns/view/#{item._id}') View
           else
             tr
               td.dbTableItem.text-center.font-bold.text-2xl(colspan='4') No Campaigns Found

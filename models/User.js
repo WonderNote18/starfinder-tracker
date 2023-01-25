@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const ObjectId = require("mongoose").Types.ObjectId;
 const { isEmail } = require('validator');
 const bcrypt = require('bcryptjs');
 
@@ -36,12 +35,10 @@ const UserSchema = mongoose.Schema({
     },
     campaigns: {
         type: Array,
-        ref: 'Campaign',
     },
     characters: {
         type: Array,
-        ref: 'Character',
-    }
+    },
 }, {timestamps: true});
 
 // pre/post model functions
@@ -72,15 +69,6 @@ UserSchema.statics.fetchUser = async function(id) {
     const user = await this.findOne({_id: id});
     if (user) {
         return user;
-    } else {
-        throw Error('Session expired, please log in.');
-    }
-}
-
-UserSchema.statics.fetchUserId = async function(id) {
-    const user = await this.findOne({_id: id});
-    if (user) {
-        return user._id;
     } else {
         throw Error('Session expired, please log in.');
     }

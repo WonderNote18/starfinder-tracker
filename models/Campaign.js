@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const ObjectId = require("mongoose").Types.ObjectId;
+const ObjectId = require("mongoose").Schema.Types.ObjectId;
 const nanoid = require("nanoid");
 const User = require('./User');
 
@@ -7,24 +7,23 @@ const CampaignSchema = mongoose.Schema({
   campaignName: {
     type: String,
     trim: true,
-    required: [true, 'Please enter a name for your Campaign']
+    required: [true, 'Please enter a name for your Campaign'],
+    maxLength: [64, 'Campaign Name cannot be longer than 64 characters.'],
   },
   campaignDescription: {
     type: String,
     trim: true,
   },
   campaignAuthor: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: ObjectId,
     ref: 'User',
     required: [true, 'A User ID is required to connect your campaign']
   },
   campaignPlayers: {
     type: Array,
-    ref: 'User'
   },
   campaignCharacters: {
     type: Array,
-    ref: 'Character'
   },
   isActive: {
     type: Boolean,
@@ -47,11 +46,13 @@ CampaignSchema.post('save', async function(doc, next){
   await User.updateOne({_id: doc.campaignAuthor}, {$push: {campaigns: doc._id}});
   console.log('new campaign was created', doc);
   next();
-})
+});
 
 // static methods
 CampaignSchema.statics.fetchAllCampaigns = async function(id) {
-  const campaigns = await this.find({'campaignAuthor': id}).populate('campaignAuthor');
+  const campaigns = await this.find({'campaignAuthor': id})
+  .populate('campaignAuthor')
+  .populate('campaignPlayers');
   if (campaigns) {
     return campaigns;
   } else {
@@ -59,7 +60,9 @@ CampaignSchema.statics.fetchAllCampaigns = async function(id) {
   }
 }
 CampaignSchema.statics.fetchCampaign = async function(id) {
-  const campaign = await this.findOne({id});
+  const campaign = await this.findOne({_id: id})
+  .populate('campaignAuthor')
+  .populate('campaignPlayers');
   if (campaign) {
     return campaign;
   } else {
