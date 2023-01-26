@@ -4,25 +4,25 @@ const nanoid = require("nanoid");
 const User = require('./User');
 
 const CampaignSchema = mongoose.Schema({
-  campaignName: {
+  caName: {
     type: String,
     trim: true,
     required: [true, 'Please enter a name for your Campaign'],
-    maxLength: [64, 'Campaign Name cannot be longer than 64 characters.'],
+    maxLength: [64, 'Campaign Name cannot be longer than 64 characters'],
   },
-  campaignDescription: {
+  caDescription: {
     type: String,
     trim: true,
   },
-  campaignAuthor: {
+  caAuthor: {
     type: ObjectId,
     ref: 'User',
-    required: [true, 'A User ID is required to connect your campaign']
+    required: [true, 'A User ID is required to connect your Campaign to the Author']
   },
-  campaignPlayers: {
+  caPlayers: {
     type: Array,
   },
-  campaignCharacters: {
+  caCharacters: {
     type: Array,
   },
   isActive: {
@@ -43,26 +43,30 @@ CampaignSchema.pre('save', function(next){
   next();
 });
 CampaignSchema.post('save', async function(doc, next){
-  await User.updateOne({_id: doc.campaignAuthor}, {$push: {campaigns: doc._id}});
-  console.log('new campaign was created', doc);
-  next();
+  const updateRes = await User.pushCampaign(doc.caAuthor, doc._id);
+  if (updateRes) {
+    console.log('new campaign was created', doc);
+    next();
+  } else {
+    throw Error('User::pushCampaign failed to be completed.');
+  }
 });
 
 // static methods
 CampaignSchema.statics.fetchAllCampaigns = async function(id) {
-  const campaigns = await this.find({'campaignAuthor': id})
-  .populate('campaignAuthor')
-  .populate('campaignPlayers');
+  const campaigns = await this.find({'caAuthor': id})
+  .populate('caAuthor')
+  .populate('caPlayers');
   if (campaigns) {
     return campaigns;
   } else {
-    return null;
+    throw Error('Campaigns could not be pulled for user');
   }
 }
 CampaignSchema.statics.fetchCampaign = async function(id) {
   const campaign = await this.findOne({_id: id})
-  .populate('campaignAuthor')
-  .populate('campaignPlayers');
+  .populate('caAuthor')
+  .populate('caPlayers');
   if (campaign) {
     return campaign;
   } else {

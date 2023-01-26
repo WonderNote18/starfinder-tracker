@@ -9,7 +9,7 @@
     @apply w-full mx-auto py-12 text-center text-gray-900 bg-teal-200 border-teal-800 border-dashed border-b-4 duration-500 dark:bg-gray-600 dark:text-slate-100 dark:border-gray-200 hover:bg-teal-300 dark:hover:bg-gray-500
   }
   .homeBtn {
-    @apply bg-transparent font-bold text-lg py-2 px-4 border rounded duration-150 hover:text-white hover:border-transparent
+    @apply bg-transparent font-bold text-lg py-2 px-4 border rounded duration-150 hover:text-slate-200 hover:border-transparent
   }
   .formModal {
     @apply bg-white overflow-hidden shadow-md text-zinc-700 sm:rounded-md  dark:bg-zinc-600 dark:text-stone-50
@@ -21,7 +21,16 @@
     @apply block mt-1 p-2 w-full text-sm text-gray-900 bg-gray-50 rounded-md shadow-sm border border-solid border-zinc-300 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-gray-700 dark:border-zinc-700 dark:placeholder-gray-400 dark:text-zinc-100 dark:focus:ring-emerald-600 dark:focus-visible:border-zinc-400 dark:focus-visible:border-[1pt] dark:focus-visible:outline-gray-800 dark:focus-visible:outline-[1pt]
   }
   .formSubmitBtn {
-    @apply inline-flex justify-center rounded-md border border-transparent bg-emerald-700 py-2 px-4 text-sm font-bold text-white shadow-sm duration-150 hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:bg-transparent dark:border-emerald-200 dark:text-emerald-200 dark:focus:ring-emerald-600 dark:hover:bg-emerald-700 dark:hover:text-slate-100 dark:hover:border-emerald-300
+    @apply inline-flex justify-center rounded-md border border-transparent bg-emerald-700 py-2 px-4 text-sm font-bold text-slate-200 shadow-sm duration-150 hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:bg-transparent dark:border-emerald-200 dark:text-emerald-200 dark:focus:ring-emerald-600 dark:hover:bg-emerald-700 dark:hover:text-slate-100 dark:hover:border-emerald-300
+  }
+  .formTabHeaderActive {
+    @apply text-sm font-bold uppercase px-5 py-3 shadow-md rounded border-[1pt] border-sky-800 block leading-normal text-slate-200 bg-sky-600 ease-out transition duration-[0.4s] dark:bg-slate-700 dark:border-stone-700
+  }
+  .formTabHeaderInactive {
+    @apply text-sm font-semibold uppercase px-5 py-3 shadow-lg rounded border-[1pt] border-gray-300 block leading-normal text-sky-600 bg-white ease-in transition duration-[0.05s] dark:text-slate-50 dark:bg-zinc-800 dark:border-stone-700
+  }
+  .formTabContent {
+    @apply relative flex flex-col min-w-0 max-h-[30rem] break-words bg-white w-full mb-6 shadow-lg rounded border-[1pt] border-gray-300 overflow-y-auto dark:bg-zinc-500 dark:border-stone-700
   }
   .pageContainer {
     @apply flex flex-col w-full m-6
@@ -63,7 +72,7 @@
     @apply px-6 py-4 overflow-hidden whitespace-nowrap text-ellipsis
   }
   .dbTableBody tr {
-    @apply z-40 bg-gray-50 bg-white hover:bg-gray-300 dark:bg-zinc-700 dark:hover:bg-stone-800
+    @apply z-40 bg-gray-50 bg-white hover:bg-gray-300 dark:bg-zinc-700 dark:hover:bg-zinc-600
   }
 }
 

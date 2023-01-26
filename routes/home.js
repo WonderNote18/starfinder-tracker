@@ -12,6 +12,8 @@ router.get('/campaigns/create', requireAuth, homeController.new_campaign_get);
 router.post('/campaigns/create', requireAuth, homeController.new_campaign_post);
 // character routes
 router.get('/characters', requireAuth, homeController.characters_get);
+router.get('/characters/create', requireAuth, homeController.new_character_get);
+router.post('/characters/create', requireAuth, homeController.new_character_post);
 // settings routes
 router.get('/settings', requireAuth, homeController.settings_get);
 

@@ -4,8 +4,8 @@ block content
   div.pageContainer
     h1.pageHeader Campaign |
       =" "
-      span.underline= campaign.campaignName
+      span.underline= campaign.caName
     div.bg-gray-200(class='dark:bg-slate-600')
-      p Description: #{campaign.campaignDescription}
-      p Author: #{campaign.campaignAuthor.username}
+      p Description: #{campaign.caDescription}
+      p Author: #{campaign.caAuthor.username}
       p Created At: #{campaign.createdAt.toLocaleDateString()} @ #{campaign.createdAt.toLocaleTimeString()}

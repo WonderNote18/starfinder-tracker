@@ -1,4 +1,37 @@
 extends assets/layout
 
 block content
-  h2 Welcome to Characters, #{user.username}
+  div.pageContainer
+    h1.pageHeader Characters
+    div.flex.ml-auto.content-end.w-fit
+      a.formSubmitBtn(href="/overview/characters/create") New Character
+    h3.text-xl.font-semibold.mb-4 Character List
+    div.dbTableContainer
+      table.dbTable
+        thead.dbTableHeader
+          tr
+            th.dbTableHeaderItem.w-1_4 Character
+            th.dbTableHeaderItem Stats
+            th.dbTableHeaderItem Date
+            th.dbTableHeaderItem Actions
+        tbody.dbTableBody
+            tr
+              td.dbTableItem.text-center.font-bold.text-2xl(colspan='4') No Characters Found
+          //- if (data.length)
+          //-   each item in data
+          //-     tr(data-id=item.campaignAuthor.campaigns.indexOf(item._id))
+          //-       th.dbTableItem.flex.gap-3.font-normal
+          //-         div.text-sm
+          //-           div.font-medium= item.campaignName
+          //-           div.italic.whitespace-pre-wrap.line-clamp-2.text-ellipsis.overflow-hidden= item.campaignDescription
+          //-       td.dbTableItem= item.campaignAuthor.username
+          //-       td.dbTableItem
+          //-         span= item.createdAt.toLocaleDateString()
+          //-         br
+          //-         span= item.createdAt.toLocaleTimeString()
+          //-       td.dbTableItem
+          //-         div.flex.flex-row
+          //-           a(href='/overview/campaigns/view/#{item._id}') View
+          //- else
+          //-   tr
+          //-     td.dbTableItem.text-center.font-bold.text-2xl(colspan='4') No Campaigns Found

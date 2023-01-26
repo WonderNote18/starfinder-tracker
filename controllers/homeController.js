@@ -38,10 +38,10 @@ const new_campaign_get = async (req, res) => {
 
 const new_campaign_post = async (req, res) => {
   const user = await fetchUser(res.locals['token']);
-  const {campaignName, campaignDescription} = req.body;
+  const {caName, caDescription} = req.body;
 
   try {
-    const campaign = await Campaign.create({campaignName, campaignDescription, campaignAuthor: user._id})
+    const campaign = await Campaign.create({caName, caDescription, caAuthor: user._id})
     res.status(201).json({campaign: campaign._id})
   } catch (err) {
     const errors = handleErr(err);
@@ -61,6 +61,24 @@ const characters_get = async (req, res) => {
   res.render('home/characters', {user});
 }
 
+const new_character_get = async (req, res) => {
+  const user = await fetchUser(res.locals['token']);
+  res.render('home/createCharacter', {user});
+}
+
+const new_character_post = async (req, res) => {
+  const user = await fetchUser(res.locals['token']);
+  const {caName, caDescription} = req.body;
+
+  try {
+    const campaign = await Campaign.create({caName, caDescription, caAuthor: user._id})
+    res.status(201).json({campaign: campaign._id})
+  } catch (err) {
+    const errors = handleErr(err);
+    res.status(400).json({errors});
+  }
+}
+
 // settings pages
 const settings_get = async (req, res) => {
   const user = await fetchUser(res.locals['token']);
@@ -73,5 +91,7 @@ module.exports = {overview_get,
   new_campaign_post,
   campaign_id_get,
   characters_get,
+  new_character_get,
+  new_character_post,
   settings_get
 }

@@ -1,0 +1,47 @@
+div.formModal
+  div#tabs-id.flex.flex-grow.flex-wrap
+    div.w-full.mx-6
+      ul.flex.mb-0.list-none.flex-wrap.pt-3.pb-4.flex-row
+        li.mr-2.flex-auto.text-center
+          a.formTabHeaderActive(onclick="changeActiveTab(event,'tab-profile')")
+            | Bio
+        li.mr-2.flex-auto.text-center
+          a.formTabHeaderInactive(onclick="changeActiveTab(event,'tab-settings')")
+            | Class
+        li.mr-2.flex-auto.text-center
+          a.formTabHeaderInactive(onclick="changeActiveTab(event,'tab-options')")
+            | Feats
+        li.mr-2.flex-auto.text-center
+          a.formTabHeaderInactive(onclick="changeActiveTab(event,'tab-things')")
+            | Spells
+        li.mr-2.flex-auto.text-center
+          a.formTabHeaderInactive(onclick="changeActiveTab(event,'tab-stuff')")
+            | Stats
+        li.mr-2.flex-auto.text-center(class='last:mr-0')
+          a.formTabHeaderInactive(onclick="changeActiveTab(event,'tab-objects')")
+            | Inventory
+  div.px-4.py-5.mb-4(class='sm:p-6')
+    div.formTabContent
+      div.px-4.py-5.flex-auto
+        div.tab-content.tab-space
+          div#tab-profile.block.overflow-y-auto.h-full
+            form#charBio
+              h2.text-xl.font-semibold This is the Bio section
+          div#tab-settings.hidden
+            form#charClass
+              h2.text-xl.font-semibold This is the Class section
+          div#tab-options.hidden
+            form#charFeats
+              h2.text-xl.font-semibold This is the Feats section
+          div#tab-things.hidden
+            form#charSpells
+              h2.text-xl.font-semibold This is the Spells section
+          div#tab-stuff.hidden
+            form#charStats
+              h2.text-xl.font-semibold This is the Stats section
+          div#tab-objects.hidden
+            form#charInventory
+              h2.text-xl.font-semibold This is the Inventory section
+  //- div.text-red-400.text-center.font-semibold.errorCampaignCreate
+  div.bg-gray-100.border-slate-300.border-t-2.px-4.pt-6.pb-3.text-right(class='sm:px-6 dark:bg-gray-700 dark:border-slate-800')
+    button.formSubmitBtn(type='submit') Create Character

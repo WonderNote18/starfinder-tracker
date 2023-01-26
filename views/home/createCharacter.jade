@@ -1,0 +1,12 @@
+extends assets/layout
+
+block content
+  div.flex.flex-col.w-full.m-6
+    h1.text-3xl.font-bold.mb-6 Create Character
+    div.mt-10.mx-auto.px-4(class='w-[85%] sm:mt-0')
+      div.mt-5.border.border-solid.border-zinc-300.border-2.rounded-md(class='md:col-span-2 md:mt-0 dark:border-slate-800')
+        include assets/newCharacterForm
+
+block append scripts
+  script(src="/javascripts/utils.js")
+  script(src="/javascripts/newCharacterForm.js")

@@ -2,14 +2,14 @@ div.formModal
   div.px-4.py-5.mb-8(class='sm:p-6')
     div.grid.grid-cols-6.gap-6
       div.col-span-3
-        label.block.text-sm.font-medium(class="dark:font-outline-1" for='campaignName') * Name of Campaign
+        label.block.text-sm.font-medium(class="dark:font-outline-1" for='caName') * Name of Campaign
         input#campaignName.formField(type='text'
-        name='campaignName'
+        name='caName'
         required)
       div.col-span-6
-        label.block.text-sm.font-medium(class="dark:font-outline-1" for='campaignDescription') Description
+        label.block.text-sm.font-medium(class="dark:font-outline-1" for='caDescription') Description
         textarea#campaignDescription.formTextarea(rows='4'
-        name='campaignDescription'
+        name='caDescription'
         placeholder='Write a description here. . .')
         div.text-red-400.text-center.font-semibold.errorCampaignCreate
   div.bg-gray-100.border-slate-300.border-t-2.px-4.pt-6.pb-3.text-right(class='sm:px-6 dark:bg-gray-700 dark:border-slate-800')

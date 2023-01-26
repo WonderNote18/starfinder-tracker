@@ -17,12 +17,12 @@ block content
         tbody.dbTableBody
           if data.length
             each item in data
-              tr(data-id=item.campaignAuthor.campaigns.indexOf(item._id))
+              tr(data-id=item.caAuthor.campaigns.indexOf(item._id))
                 th.dbTableItem.flex.gap-3.font-normal
                   div.text-sm
-                    div.font-medium= item.campaignName
-                    div.italic.whitespace-pre-wrap.line-clamp-2.text-ellipsis.overflow-hidden= item.campaignDescription
-                td.dbTableItem= item.campaignAuthor.username
+                    div.font-medium= item.caName
+                    div.italic.whitespace-pre-wrap.line-clamp-2.text-ellipsis.overflow-hidden= item.caDescription
+                td.dbTableItem= item.caAuthor.username
                 td.dbTableItem
                   span= item.createdAt.toLocaleDateString()
                   br
