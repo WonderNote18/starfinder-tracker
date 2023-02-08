@@ -104,6 +104,8 @@ dist
 .tern-port
 
 # Visual Studio Code settings
+.vscode
+.DS_Store
 
 # TailwindCSS configuration
 **.config.js
@@ -111,6 +113,7 @@ dist
 /lib
 /peers
 /example
-.vscode
-.DS_Store
 yarn.lock
+
+# Notes
+notes/
